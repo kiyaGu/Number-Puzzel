@@ -1,0 +1,29 @@
+body {
+    height: 100vh;
+    width: 100vw;
+    font-size: 16px;
+    background : linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, .9));
+}
+main{
+    margin: 10% 20%;
+    max-height: 100vh;
+}
+#wrapper{
+    background: #000;
+    height: 400px;
+    width: 500px;
+    padding: 50px 50px;
+}
+#container{
+    background: #000;
+    height: 300px;
+    width: 380px;
+    margin: 10%;
+}
+#game-canvas{
+/*
+    border: 1px solid #fff;
+    height: 400px;
+    width: 500px;
+*/
+}
