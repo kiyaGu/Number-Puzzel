@@ -1,3 +1,39 @@
+//construct objects to hold position, x and y coordinate
+let PuzzelEntry = function(position, puzzelNumber) {
+    this.position = position;
+    this.puzzelNumber = puzzelNumber;
+}
+
+let PuzzelBoardPosition = function(x, y, status, posNumber) {
+    this.x = x;
+    this.y = y;
+    this.status = status;
+    this.positionNumber = posNumber;
+}
+let positions = [];
+positions.push(new PuzzelBoardPosition(0, 0, true, 1));
+positions.push(new PuzzelBoardPosition(125, 0, true, 2));
+positions.push(new PuzzelBoardPosition(250, 0, true, 3));
+positions.push(new PuzzelBoardPosition(0, 101, true, 4));
+positions.push(new PuzzelBoardPosition(125, 101, true, 5));
+positions.push(new PuzzelBoardPosition(250, 101, true, 6));
+positions.push(new PuzzelBoardPosition(0, 202, true, 7));
+positions.push(new PuzzelBoardPosition(125, 202, true, 8));
+
+
+let puzzelEntryNumbers = [];
+puzzelEntryNumbers.push(new PuzzelEntry(positions[0], 1));
+puzzelEntryNumbers.push(new PuzzelEntry(positions[1], 2));
+puzzelEntryNumbers.push(new PuzzelEntry(positions[2], 3));
+puzzelEntryNumbers.push(new PuzzelEntry(positions[3], 4));
+puzzelEntryNumbers.push(new PuzzelEntry(positions[4], 5));
+puzzelEntryNumbers.push(new PuzzelEntry(positions[5], 6));
+puzzelEntryNumbers.push(new PuzzelEntry(positions[6], 7));
+puzzelEntryNumbers.push(new PuzzelEntry(positions[7], 8));
+
+console.log(positions);
+console.log(puzzelEntryNumbers);
+//
 let canvas = document.getElementById('game-canvas');
 let canvasContext = canvas.getContext('2d');
 
@@ -9,40 +45,23 @@ function getMousePos(evt) {
     };
 }
 
-
-let dx = 0,
-    dy = 0;
-for (let j = 1; j < 9; j++) {
-    let img = document.createElement("img");
-    img.src = "images/number-" + j + ".gif";
-    img.addEventListener("load", function() {
-        canvasContext.drawImage(img, dx, dy);
-
-        if (dx < 250) {
-            dx += 125;
-        } else {
-            dx = 0;
-            if (j == 3) {
-                dy = 101;
-            } else if (j == 6) {
-                dy = 202;
-            }
-        }
-
-    });
-}
-
 let colorRect = function(x, y) {
     canvasContext.fillStyle = "black";
     canvasContext.fillRect(x, y, 124, 100);
 }
 
 
-let drawNumberImg = function(x, y, i) {
+let drawNumberImg = function(dx, dy, i) {
     let img = document.createElement("img");
     img.src = "images/number-" + i + ".gif";
-    canvasContext.drawImage(img, dx, dy);
+    img.addEventListener("load", function() {
+        canvasContext.drawImage(img, dx, dy);
+    });
 }
+puzzelEntryNumbers.forEach((element) => {
+    drawNumberImg(element.position.x, element.position.y, element.puzzelNumber);
+})
+
 canvas.addEventListener('click', (event) => {
     let position = getMousePos(event);
     if (position.x > 0 && position.x < 124 && position.y > 0 && position.y < 100) {
