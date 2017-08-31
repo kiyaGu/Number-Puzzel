@@ -42,9 +42,10 @@ positions.push(new PuzzelBoardPosition(125, 101, false, 5, index[4]));
 positions.push(new PuzzelBoardPosition(250, 101, false, 6, index[5]));
 positions.push(new PuzzelBoardPosition(0, 202, false, 7, index[6]));
 positions.push(new PuzzelBoardPosition(125, 202, false, 8, index[7]));
-positions.push(new PuzzelBoardPosition(250, 202, true, 9, index[8]));
+positions.push(new PuzzelBoardPosition(250, 202, false, 9, index[8]));
 positions.forEach((element) => {
-    console.log(element);
+    if (element.currentPlaceHolder == 9)
+        element.availablity = true;
 })
 
 let puzzelEntryNumbers = [];
@@ -115,8 +116,7 @@ canvas.addEventListener('click', (event) => {
             repaintPosition(positions[0].x, positions[0].y);
             positions[0].availablity = true;
             positions[1].availablity = false;
-            puzzelEntryNumbers[0].status = false;
-            puzzelEntryNumbers[0].currentLocation = 1;
+
             positions[1].currentPlaceHolder = positions[0].currentPlaceHolder;
             positions[0].currentPlaceHolder = 9;
         } else if (positions[3].availablity) {
@@ -124,8 +124,7 @@ canvas.addEventListener('click', (event) => {
             repaintPosition(positions[0].x, positions[0].y);
             positions[0].availablity = true;
             positions[3].availablity = false;
-            puzzelEntryNumbers[0].status = false;
-            puzzelEntryNumbers[0].currentLocation = 3;
+
             positions[3].currentPlaceHolder = positions[0].currentPlaceHolder;
             positions[0].currentPlaceHolder = 9;
         }
@@ -137,8 +136,7 @@ canvas.addEventListener('click', (event) => {
             repaintPosition(positions[1].x, positions[1].y);
             positions[1].availablity = true;
             positions[0].availablity = false;
-            puzzelEntryNumbers[1].status = false;
-            puzzelEntryNumbers[1].currentLocation = 0;
+
             positions[0].currentPlaceHolder = positions[1].currentPlaceHolder;
             positions[1].currentPlaceHolder = 9;
         } else if (positions[2].availablity) {
@@ -146,8 +144,7 @@ canvas.addEventListener('click', (event) => {
             repaintPosition(positions[1].x, positions[1].y);
             positions[1].availablity = true;
             positions[2].availablity = false;
-            puzzelEntryNumbers[1].status = false;
-            puzzelEntryNumbers[1].currentLocation = 2;
+
             positions[2].currentPlaceHolder = positions[1].currentPlaceHolder;
             positions[1].currentPlaceHolder = 9;
         } else if (positions[4].availablity) {
@@ -155,8 +152,7 @@ canvas.addEventListener('click', (event) => {
             repaintPosition(positions[1].x, positions[1].y);
             positions[1].availablity = true;
             positions[4].availablity = false;
-            puzzelEntryNumbers[1].status = false;
-            puzzelEntryNumbers[1].currentLocation = 4;
+
             positions[4].currentPlaceHolder = positions[1].currentPlaceHolder;
             positions[1].currentPlaceHolder = 9;
         }
@@ -168,8 +164,7 @@ canvas.addEventListener('click', (event) => {
             repaintPosition(positions[2].x, positions[2].y);
             positions[2].availablity = true;
             positions[1].availablity = false;
-            puzzelEntryNumbers[2].status = false;
-            puzzelEntryNumbers[2].currentLocation = 1;
+
             positions[1].currentPlaceHolder = positions[2].currentPlaceHolder;
             positions[2].currentPlaceHolder = 9;
         } else if (positions[5].availablity) {
@@ -177,8 +172,7 @@ canvas.addEventListener('click', (event) => {
             repaintPosition(positions[2].x, positions[2].y);
             positions[2].availablity = true;
             positions[5].availablity = false;
-            puzzelEntryNumbers[2].status = false;
-            puzzelEntryNumbers[2].currentLocation = 5;
+
             positions[5].currentPlaceHolder = positions[2].currentPlaceHolder;
             positions[2].currentPlaceHolder = 9;
         }
@@ -190,8 +184,7 @@ canvas.addEventListener('click', (event) => {
             repaintPosition(positions[3].x, positions[3].y);
             positions[3].availablity = true;
             positions[0].availablity = false;
-            puzzelEntryNumbers[3].status = false;
-            puzzelEntryNumbers[3].currentLocation = 0;
+
             positions[0].currentPlaceHolder = positions[3].currentPlaceHolder;
             positions[3].currentPlaceHolder = 9;
         } else if (positions[4].availablity) {
@@ -199,8 +192,7 @@ canvas.addEventListener('click', (event) => {
             repaintPosition(positions[3].x, positions[3].y);
             positions[3].availablity = true;
             positions[4].availablity = false;
-            puzzelEntryNumbers[3].status = false;
-            puzzelEntryNumbers[3].currentLocation = 4;
+
             positions[4].currentPlaceHolder = positions[3].currentPlaceHolder;
             positions[3].currentPlaceHolder = 9;
         } else if (positions[6].availablity) {
@@ -208,8 +200,7 @@ canvas.addEventListener('click', (event) => {
             repaintPosition(positions[3].x, positions[3].y);
             positions[3].availablity = true;
             positions[6].availablity = false;
-            puzzelEntryNumbers[3].status = false;
-            puzzelEntryNumbers[3].currentLocation = 6;
+
             positions[6].currentPlaceHolder = positions[3].currentPlaceHolder;
             positions[3].currentPlaceHolder = 9;
         }
@@ -221,8 +212,7 @@ canvas.addEventListener('click', (event) => {
             repaintPosition(positions[4].x, positions[4].y);
             positions[4].availablity = true;
             positions[1].availablity = false;
-            puzzelEntryNumbers[4].status = false;
-            puzzelEntryNumbers[4].currentLocation = 1;
+
             positions[1].currentPlaceHolder = positions[4].currentPlaceHolder;
             positions[4].currentPlaceHolder = 9;
         } else if (positions[3].availablity) {
@@ -230,8 +220,7 @@ canvas.addEventListener('click', (event) => {
             repaintPosition(positions[4].x, positions[4].y);
             positions[4].availablity = true;
             positions[3].availablity = false;
-            puzzelEntryNumbers[4].status = false;
-            puzzelEntryNumbers[4].currentLocation = 3;
+
             positions[3].currentPlaceHolder = positions[4].currentPlaceHolder;
             positions[4].currentPlaceHolder = 9;
         } else if (positions[5].availablity) {
@@ -239,8 +228,7 @@ canvas.addEventListener('click', (event) => {
             repaintPosition(positions[4].x, positions[4].y);
             positions[4].availablity = true;
             positions[5].availablity = false;
-            puzzelEntryNumbers[4].status = false;
-            puzzelEntryNumbers[4].currentLocation = 5;
+
             positions[5].currentPlaceHolder = positions[4].currentPlaceHolder;
             positions[4].currentPlaceHolder = 9;
         } else if (positions[7].availablity) {
@@ -248,8 +236,7 @@ canvas.addEventListener('click', (event) => {
             repaintPosition(positions[4].x, positions[4].y);
             positions[4].availablity = true;
             positions[7].availablity = false;
-            puzzelEntryNumbers[4].status = false;
-            puzzelEntryNumbers[4].currentLocation = 7;
+
             positions[7].currentPlaceHolder = positions[4].currentPlaceHolder;
             positions[4].currentPlaceHolder = 9;
         }
@@ -261,8 +248,7 @@ canvas.addEventListener('click', (event) => {
             repaintPosition(positions[5].x, positions[5].y);
             positions[5].availablity = true;
             positions[2].availablity = false;
-            puzzelEntryNumbers[5].status = false;
-            puzzelEntryNumbers[5].currentLocation = 2;
+
             positions[2].currentPlaceHolder = positions[5].currentPlaceHolder;
             positions[5].currentPlaceHolder = 9;
         } else if (positions[4].availablity) {
@@ -270,8 +256,7 @@ canvas.addEventListener('click', (event) => {
             repaintPosition(positions[5].x, positions[5].y);
             positions[5].availablity = true;
             positions[4].availablity = false;
-            puzzelEntryNumbers[5].status = false;
-            puzzelEntryNumbers[5].currentLocation = 4;
+
             positions[4].currentPlaceHolder = positions[5].currentPlaceHolder;
             positions[5].currentPlaceHolder = 9;
         } else if (positions[8].availablity) {
@@ -282,8 +267,7 @@ canvas.addEventListener('click', (event) => {
             repaintPosition(positions[5].x, positions[5].y);
             positions[5].availablity = true;
             positions[8].availablity = false;
-            puzzelEntryNumbers[5].status = false;
-            puzzelEntryNumbers[5].currentLocation = 8;
+
             positions[8].currentPlaceHolder = positions[5].currentPlaceHolder;
             positions[5].currentPlaceHolder = 9;
         }
@@ -295,8 +279,7 @@ canvas.addEventListener('click', (event) => {
             repaintPosition(positions[6].x, positions[6].y);
             positions[6].availablity = true;
             positions[3].availablity = false;
-            puzzelEntryNumbers[6].status = false;
-            puzzelEntryNumbers[6].currentLocation = 3;
+
             positions[3].currentPlaceHolder = positions[6].currentPlaceHolder;
             positions[6].currentPlaceHolder = 9;
         } else if (positions[7].availablity) {
@@ -304,8 +287,7 @@ canvas.addEventListener('click', (event) => {
             repaintPosition(positions[6].x, positions[6].y);
             positions[6].availablity = true;
             positions[7].availablity = false;
-            puzzelEntryNumbers[6].status = false;
-            puzzelEntryNumbers[6].currentLocation = 7;
+
             positions[7].currentPlaceHolder = positions[6].currentPlaceHolder;
             positions[6].currentPlaceHolder = 9;
         }
@@ -317,8 +299,7 @@ canvas.addEventListener('click', (event) => {
             repaintPosition(positions[7].x, positions[7].y);
             positions[7].availablity = true;
             positions[4].availablity = false;
-            puzzelEntryNumbers[7].status = false;
-            puzzelEntryNumbers[7].currentLocation = 4;
+
             positions[4].currentPlaceHolder = positions[7].currentPlaceHolder;
             positions[7].currentPlaceHolder = 9;
         } else if (positions[6].availablity) {
@@ -326,8 +307,7 @@ canvas.addEventListener('click', (event) => {
             repaintPosition(positions[7].x, positions[7].y);
             positions[7].availablity = true;
             positions[6].availablity = false;
-            puzzelEntryNumbers[7].status = false;
-            puzzelEntryNumbers[7].currentLocation = 6;
+
             positions[6].currentPlaceHolder = positions[7].currentPlaceHolder;
             positions[7].currentPlaceHolder = 9;
         } else if (positions[8].availablity) {
@@ -338,8 +318,7 @@ canvas.addEventListener('click', (event) => {
             repaintPosition(positions[7].x, positions[7].y);
             positions[7].availablity = true;
             positions[8].availablity = false;
-            puzzelEntryNumbers[7].status = false;
-            puzzelEntryNumbers[7].currentLocation = 8;
+
             positions[8].currentPlaceHolder = positions[7].currentPlaceHolder;
             positions[7].currentPlaceHolder = 9;
         }
