@@ -32,7 +32,7 @@ mixThePuzzel = function() {
     }
 }
 mixThePuzzel();
-console.log(index)
+
 let positions = [];
 positions.push(new PuzzelBoardPosition(0, 0, false, 1, index[0]));
 positions.push(new PuzzelBoardPosition(125, 0, false, 2, index[1]));
@@ -58,9 +58,7 @@ puzzelEntryNumbers.push(new PuzzelEntry(positions[5], index[5], true, 6));
 puzzelEntryNumbers.push(new PuzzelEntry(positions[6], index[6], true, 7));
 puzzelEntryNumbers.push(new PuzzelEntry(positions[7], index[7], true, 8));
 puzzelEntryNumbers.push(new PuzzelEntry(positions[8], index[8], true, 9));
-puzzelEntryNumbers.forEach((element) => {
-    console.log(element);
-})
+
 let canvas = document.getElementById('game-canvas');
 let canvasContext = canvas.getContext('2d');
 
@@ -88,20 +86,16 @@ let drawNumberImg = function(dx, dy, i) {
 
 
 puzzelEntryNumbers.forEach((element) => {
-    // console.log(element)
     drawNumberImg(element.position.x, element.position.y, element.puzzelNumber);
 })
 let checkPosition = function(i) {
-    // console.log(i, positions[i].positionNumber, positions[i].currentPlaceHolder)
     return (positions[i].positionNumber == i + 1 && positions[i].currentPlaceHolder == i + 1);
 
 }
 let checkGameResult = function() {
     let test = positions.reduce((preTest, position) => {
-        console.log(preTest, position)
         return preTest && checkPosition(positions.indexOf(position))
     });
-    console.log(test)
     return test;
 }
 
@@ -343,6 +337,8 @@ canvas.addEventListener('click', (event) => {
     }
     if (checkGameResult())
         setTimeout(() => {
-            alert("Congratulation, you won...HURRAH!!!");
+            document.getElementById('resultContainer').innerHTML = "<p id='result' class='animated infinite flash'><span>Congratulation</span>, you won...HURRAH!!!</p>"
+
+            // location.reload();
         }, 100);
 })

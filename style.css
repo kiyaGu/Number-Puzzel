@@ -2,28 +2,54 @@ body {
     height: 100vh;
     width: 100vw;
     font-size: 16px;
-    background : linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, .9));
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, .9)), url(images/puzzel2.jpg) repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
 }
-main{
-    margin: 10% 20%;
-    max-height: 100vh;
+
+main {
+    margin: 10% 30% 3% 30%;
 }
-#wrapper{
-    background: #000;
+
+#wrapper {
     height: 400px;
     width: 500px;
-    padding: 50px 50px;
+    padding: 50px 50px 20px 50px;
 }
-#container{
-    background: #000;
+
+#container {
+    background: transparent;
     height: 300px;
     width: 380px;
     margin: 10%;
 }
-#game-canvas{
-/*
-    border: 1px solid #fff;
-    height: 400px;
-    width: 500px;
-*/
+
+#resultContainer {
+    color: #fec951;
+    font-size: 1.4em;
+    text-transform: uppercase;
+}
+
+#result {
+    -vendor-animation-duration: 3s;
+    -vendor-animation-delay: 2s;
+    -vendor-animation-iteration-count: 10;
+}
+
+#result span {
+    font-size: 1.5em;
+}
+
+footer {
+    color: #fec951;
+    text-align: center;
+}
+
+footer i {
+    color: red;
 }
