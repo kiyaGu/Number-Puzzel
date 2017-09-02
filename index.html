@@ -6,6 +6,7 @@
 
 <head>
     <title>Number Puzzel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
     <!--======FontAwesome====-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!--======google fonts=======-->
@@ -18,7 +19,16 @@
     <main>
         <div id="wrapper">
             <div id="container">
-                <canvas id="game-canvas" width="380" height="300"></canvas>
+                <div id="easy-puzzel-container">
+                    <canvas id="easy-puzzel" class="game-canvas" width="380" height="300"></canvas>
+                </div>
+                <div id="harder-puzzel-container">
+                    <canvas id="harder-puzzel" class="game-canvas" width="404" height="324"></canvas>
+                </div>
+                <div id="buttons-container">
+                    <button class="btn" id="reset">Reset</button>
+                    <button class="btn" id="make-it-harder">Make It Harder</button>
+                </div>
             </div>
         </div>
         <div id="resultContainer"></div>

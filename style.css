@@ -27,10 +27,52 @@ main {
     height: 300px;
     width: 380px;
     margin: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.game-canvas {
+    cursor: pointer;
+    margin-bottom: 1em;
+}
+
+#harder-puzzel-container {
+    display: none;
+}
+
+#container #buttons-container {
+    text-align: center;
+}
+
+.btn {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background: transparent;
+    border: 1px solid #fec951;
+    border-radius: 4px;
+    color: #fff;
+}
+
+#buttons-container button:first-of-type {
+    margin-right: 2em;
+    padding: .4em 3em;
 }
 
 #resultContainer {
-    color: #fec951;
+    color: #fff;
     font-size: 1.4em;
     text-transform: uppercase;
 }
@@ -43,6 +85,7 @@ main {
 
 #result span {
     font-size: 1.5em;
+    color: #fec951;
 }
 
 footer {
