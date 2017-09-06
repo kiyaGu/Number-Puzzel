@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta http-equiv="content-type" content="text/html">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<head>
+    <title>Number Puzzel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+    <!--======FontAwesome====-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--======google fonts=======-->
+    <link href='https://fonts.googleapis.com/css?family=Raleway:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libraries/jQuery.countdown/jquery.countdown.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <main>
+        <article id="more-game">
+            <div id="more-game-container">
+                <hr>
+                <!-- <span class="close"><i class="fa fa-times-circle-o" aria-hidden="true"></i></span> -->
+                <div id="game-wrapper">
+                    <div id="puzzel-game-container">
+                        <div id="easy-puzzel-container">
+                            <canvas id="easy-puzzel" class="game-canvas" width="303px" height="244px"></canvas>
+                        </div>
+                        <div id="harder-puzzel-container">
+                            <canvas id="harder-puzzel" class="game-canvas" width="404px" height="324px"></canvas>
+                        </div>
+                        <div id="buttons-container">
+                            <button class="btn" id="reset" name="reset">Reset</button>
+                            <button class="btn" id="make-it-harder">Make It Harder</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="game-timer"></div>
+                <div id="resultContainer"></div>
+                <hr>
+                <p>Made with <i class="fa fa-heart" aria-hidden="true"></i> by <span>KIYA</span> @ 2017</p>
+            </div>
+        </article>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/libraries/jQuery.countdown/jquery.plugin.min.js"></script>
+    <script type="text/javascript" src="/libraries/jQuery.countdown/jquery.countdown.min.js"></script>
+    <script type="text/javascript" src="/js/bundle.js"></script>
+</body>
+
+</html>

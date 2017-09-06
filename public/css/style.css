@@ -1,0 +1,220 @@
+body {
+    height: 100vh;
+    width: 100vw;
+    font-size: 16px;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url(../images/puzzel2.jpg) repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+}
+
+hr {
+    margin-bottom: 30px;
+    border-color: #fec951;
+    width: 100%;
+}
+
+#more-game {
+    margin: 0 8.63%;
+    color: cornsilk;
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    /* background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, .9)), url(../images/images/puzzel2.jpg); */
+    display: flex;
+}
+
+#more-game {
+    padding-top: 100px;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+#more-game-container {
+    margin: 2em 5%;
+    background-size: 100%;
+    border-radius: 3px;
+    min-height: 300px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 3em 5% 3em 8%;
+}
+
+.game-canvas {
+    cursor: pointer;
+    margin-bottom: 1em;
+}
+
+#harder-puzzel-container {
+    display: none;
+}
+
+#container #buttons-container {
+    text-align: center;
+}
+
+.btn {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background: transparent;
+    border: 1px solid #fec951;
+    border-radius: 4px;
+    color: #fff;
+    outline: none;
+}
+
+.btn:hover {
+    color: #fec951;
+}
+
+#buttons-container button:first-of-type {
+    margin-right: 2em;
+    padding: .4em 3em;
+}
+
+#resultContainer {
+    color: #fff;
+    font-size: 1.4em;
+    text-transform: uppercase;
+}
+
+#result {
+    -vendor-animation-duration: 3s;
+    -vendor-animation-delay: 2s;
+    -vendor-animation-iteration-count: 10;
+}
+
+#result span {
+    font-size: 1.5em;
+    color: #fec951;
+}
+
+#more-game-container {
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    position: relative;
+    margin-top: .5em;
+    width: 100%;
+}
+
+#game-wrapper {
+    align-self: center;
+    padding: 1em auto;
+    width: 450px;
+}
+
+#puzzel-game-container {
+    height: auto;
+    width: auto;
+    margin: 10%;
+}
+
+.game-canvas {
+    cursor: pointer;
+    margin-bottom: 1em;
+}
+
+#harder-puzzel-container {
+    display: none;
+}
+
+#buttons-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+#puzzel-game-container #buttons-container {
+    text-align: center;
+    margin-bottom: 2em;
+}
+
+#more-game .btn {
+    background: transparent;
+    border: 1px solid #fec951;
+    outline: none;
+}
+
+#more-game .btn:hover {
+    color: #fec951;
+}
+
+#buttons-container button:first-of-type {
+    padding: .4em 3em;
+}
+
+#resultContainer {
+    color: #fff;
+    font-size: 1.4em;
+    text-transform: uppercase;
+}
+
+#more-game #result {
+    color: cornsilk;
+}
+
+#more-game #result span {
+    font-size: 1.5em;
+    color: #fec951;
+}
+
+#more-game-container p:last-of-type {
+    color: #fec951;
+    text-align: center;
+    margin-bottom: 1em;
+    font-size: .8em;
+}
+
+#more-game-container hr:last-of-type {
+    margin-bottom: .7em;
+}
+
+#more-game-container p:last-of-type i {
+    color: red;
+}
+
+#more-game-container p:last-of-type span {
+    color: cornsilk;
+}
+
+#game-timer {
+    background: transparent;
+    border-color: #fec951;
+    position: absolute;
+    right: 70px;
+    top: 40%;
+    width: 200px;
+    padding-top: .7em;
+    color: #CF4A39;
+    text-align: center;
+}
+
+#game-timer span {
+    text-transform: uppercase;
+    font-weight: bold;
+}

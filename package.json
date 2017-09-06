@@ -1,0 +1,19 @@
+{
+  "name": "number_puzzel",
+  "version": "1.0.0",
+  "description": "A simple numbers puzzel game",
+  "main": "server.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Kiya Gu",
+  "license": "ISC",
+  "dependencies": {
+    "browserify": "^14.4.0",
+    "express": "^4.15.4"
+  },
+  "devDependencies": {
+    "mocha": "^3.5.0",
+    "zombie": "^5.0.7"
+  }
+}
