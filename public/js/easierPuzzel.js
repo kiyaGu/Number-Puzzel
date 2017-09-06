@@ -5,10 +5,10 @@ const getMousePos = require('./getMousePosition');
 const resetGame = require('./resetThePuzzel');
 const makeMove = require('./makeMove');
 const gameTimer = require('./gameTimer');
-const PuzzelEntry  = require('./puzzelEntry');
-const PuzzelBoardPosition = require('./puzzelBoardPosition');
 const checkGameResult = require('./checkGameResult');
 const displayMessage = require('./displayMessage');
+const createThePositionObjects = require('./positionObjects');
+const createPositionNumberEntries = require('./positionNumberEntries');
 //easier puzzel
 let easierPuzzel = function() {
         currentGame = "easierPuzzel";
@@ -26,46 +26,17 @@ let easierPuzzel = function() {
             }
         }
         mixThePuzzel();
-
+        //create the positions to hold the numbers
         this.positions = [];
         let x = [0,101,202];
         let y = [0,81,162]
         //(x, y, availablity, posNumber, currentPlaceHolder)
-        let counter = 0;
-        for(j=0; j< y.length; j++){
-          for(let i = 0; i < x.length; i++){
-             positions.push(new PuzzelBoardPosition(x[i], y[j], false, counter, index[counter]));
-             ++counter;
-          }
-        }
-        // positions.push(new PuzzelBoardPosition(0, 0, false, 0, index[0]));
-        // positions.push(new PuzzelBoardPosition(101, 0, false, 1, index[1]));
-        // positions.push(new PuzzelBoardPosition(202, 0, false, 2, index[2]));
-        // positions.push(new PuzzelBoardPosition(0, 81, false, 3, index[3]));
-        // positions.push(new PuzzelBoardPosition(101, 81, false, 4, index[4]));
-        // positions.push(new PuzzelBoardPosition(202, 81, false, 5, index[5]));
-        // positions.push(new PuzzelBoardPosition(0, 162, false, 6, index[6]));
-        // positions.push(new PuzzelBoardPosition(101, 162, false, 7, index[7]));
-        // positions.push(new PuzzelBoardPosition(202, 162, false, 8, index[8]));
-        positions.forEach((element) => {
-            if (element.currentPlaceHolder == 9)
-                element.availablity = true;
-        })
 
-        let puzzelEntryNumbers = [];
-        //(position, puzzelNumber, currentLocation)
-        for(let i= 0; i< 9; i++){
-          puzzelEntryNumbers.push(new PuzzelEntry(positions[i], index[i], i));
-        }
-        // puzzelEntryNumbers.push(new PuzzelEntry(positions[0], index[0], 0));
-        // puzzelEntryNumbers.push(new PuzzelEntry(positions[1], index[1], 1));
-        // puzzelEntryNumbers.push(new PuzzelEntry(positions[2], index[2], 2));
-        // puzzelEntryNumbers.push(new PuzzelEntry(positions[3], index[3], 3));
-        // puzzelEntryNumbers.push(new PuzzelEntry(positions[4], index[4], 4));
-        // puzzelEntryNumbers.push(new PuzzelEntry(positions[5], index[5], 5));
-        // puzzelEntryNumbers.push(new PuzzelEntry(positions[6], index[6], 6));
-        // puzzelEntryNumbers.push(new PuzzelEntry(positions[7], index[7], 7));
-        // puzzelEntryNumbers.push(new PuzzelEntry(positions[8], index[8], 8));
+        createThePositionObjects(x , y,index);
+
+        //creating the numbers with their currentLocation
+        this.puzzelEntryNumbers = [];
+        createPositionNumberEntries(9,index);
 
         let easyGameCanvas = document.getElementById('easy-puzzel');
         canvasContext = easyGameCanvas.getContext('2d');
