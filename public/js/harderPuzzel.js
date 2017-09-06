@@ -6,6 +6,8 @@ const makeMove = require('./makeMove');
 const gameTimer = require('./gameTimer');
 const PuzzelEntry  = require('./puzzelEntry');
 const PuzzelBoardPosition = require('./puzzelBoardPosition');
+const checkGameResult = require('./checkGameResult');
+const displayMessage = require('./displayMessage');
 
 //make it harder
 let harderPuzzel = function() {
@@ -26,44 +28,56 @@ mixThePuzzel = function() {
 mixThePuzzel();
 
 global.positions = [];
-positions.push(new PuzzelBoardPosition(0, 0, false, 0, index[0]));
-positions.push(new PuzzelBoardPosition(81, 0, false, 1, index[1]));
-positions.push(new PuzzelBoardPosition(162, 0, false, 2, index[2]));
-positions.push(new PuzzelBoardPosition(243, 0, false, 3, index[3]));
-positions.push(new PuzzelBoardPosition(0, 71, false, 4, index[4]));
-positions.push(new PuzzelBoardPosition(81, 71, false, 5, index[5]));
-positions.push(new PuzzelBoardPosition(162, 71, false, 6, index[6]));
-positions.push(new PuzzelBoardPosition(243, 71, false, 7, index[7]));
-positions.push(new PuzzelBoardPosition(0, 142, false, 8, index[8]));
-positions.push(new PuzzelBoardPosition(81, 142, false, 9, index[9]));
-positions.push(new PuzzelBoardPosition(162, 142, false, 10, index[10]));
-positions.push(new PuzzelBoardPosition(243, 142, false, 11, index[11]));
-positions.push(new PuzzelBoardPosition(0, 213, false, 12, index[12]));
-positions.push(new PuzzelBoardPosition(81, 213, false, 13, index[13]));
-positions.push(new PuzzelBoardPosition(162, 213, false, 14, index[14]));
-positions.push(new PuzzelBoardPosition(243, 213, false, 15, index[15]));
+let x = [0,81,162,243];
+let y = [0,71,142,213];
+let counter = 0;
+for(j=0; j< y.length; j++){
+  for(let i = 0; i < x.length; i++){
+     positions.push(new PuzzelBoardPosition(x[i], y[j], false, counter, index[counter]));
+     ++counter;
+  }
+}
+// positions.push(new PuzzelBoardPosition(0, 0, false, 0, index[0]));
+// positions.push(new PuzzelBoardPosition(81, 0, false, 1, index[1]));
+// positions.push(new PuzzelBoardPosition(162, 0, false, 2, index[2]));
+// positions.push(new PuzzelBoardPosition(243, 0, false, 3, index[3]));
+// positions.push(new PuzzelBoardPosition(0, 71, false, 4, index[4]));
+// positions.push(new PuzzelBoardPosition(81, 71, false, 5, index[5]));
+// positions.push(new PuzzelBoardPosition(162, 71, false, 6, index[6]));
+// positions.push(new PuzzelBoardPosition(243, 71, false, 7, index[7]));
+// positions.push(new PuzzelBoardPosition(0, 142, false, 8, index[8]));
+// positions.push(new PuzzelBoardPosition(81, 142, false, 9, index[9]));
+// positions.push(new PuzzelBoardPosition(162, 142, false, 10, index[10]));
+// positions.push(new PuzzelBoardPosition(243, 142, false, 11, index[11]));
+// positions.push(new PuzzelBoardPosition(0, 213, false, 12, index[12]));
+// positions.push(new PuzzelBoardPosition(81, 213, false, 13, index[13]));
+// positions.push(new PuzzelBoardPosition(162, 213, false, 14, index[14]));
+// positions.push(new PuzzelBoardPosition(243, 213, false, 15, index[15]));
 positions.forEach((element) => {
     if (element.currentPlaceHolder == 16)
         element.availablity = true;
 })
 
 let puzzelEntryNumbers = [];
-puzzelEntryNumbers.push(new PuzzelEntry(positions[0], index[0], true, 0));
-puzzelEntryNumbers.push(new PuzzelEntry(positions[1], index[1], true, 1));
-puzzelEntryNumbers.push(new PuzzelEntry(positions[2], index[2], true, 2));
-puzzelEntryNumbers.push(new PuzzelEntry(positions[3], index[3], true, 3));
-puzzelEntryNumbers.push(new PuzzelEntry(positions[4], index[4], true, 4));
-puzzelEntryNumbers.push(new PuzzelEntry(positions[5], index[5], true, 5));
-puzzelEntryNumbers.push(new PuzzelEntry(positions[6], index[6], true, 6));
-puzzelEntryNumbers.push(new PuzzelEntry(positions[7], index[7], true, 7));
-puzzelEntryNumbers.push(new PuzzelEntry(positions[8], index[8], true, 8));
-puzzelEntryNumbers.push(new PuzzelEntry(positions[9], index[9], true, 9));
-puzzelEntryNumbers.push(new PuzzelEntry(positions[10], index[10], true, 10));
-puzzelEntryNumbers.push(new PuzzelEntry(positions[11], index[11], true, 11));
-puzzelEntryNumbers.push(new PuzzelEntry(positions[12], index[12], true, 12));
-puzzelEntryNumbers.push(new PuzzelEntry(positions[13], index[13], true, 13));
-puzzelEntryNumbers.push(new PuzzelEntry(positions[14], index[14], true, 14));
-puzzelEntryNumbers.push(new PuzzelEntry(positions[15], index[15], true, 15));
+for(let i= 0; i< 16; i++){
+  puzzelEntryNumbers.push(new PuzzelEntry(positions[i], index[i], i));
+}
+// puzzelEntryNumbers.push(new PuzzelEntry(positions[0], index[0],0));
+// puzzelEntryNumbers.push(new PuzzelEntry(positions[1], index[1],1));
+// puzzelEntryNumbers.push(new PuzzelEntry(positions[2], index[2],2));
+// puzzelEntryNumbers.push(new PuzzelEntry(positions[3], index[3], 3));
+// puzzelEntryNumbers.push(new PuzzelEntry(positions[4], index[4], 4));
+// puzzelEntryNumbers.push(new PuzzelEntry(positions[5], index[5], 5));
+// puzzelEntryNumbers.push(new PuzzelEntry(positions[6], index[6], 6));
+// puzzelEntryNumbers.push(new PuzzelEntry(positions[7], index[7],7));
+// puzzelEntryNumbers.push(new PuzzelEntry(positions[8], index[8], 8));
+// puzzelEntryNumbers.push(new PuzzelEntry(positions[9], index[9], 9));
+// puzzelEntryNumbers.push(new PuzzelEntry(positions[10], index[10], 10));
+// puzzelEntryNumbers.push(new PuzzelEntry(positions[11], index[11],11));
+// puzzelEntryNumbers.push(new PuzzelEntry(positions[12], index[12],12));
+// puzzelEntryNumbers.push(new PuzzelEntry(positions[13], index[13], 13));
+// puzzelEntryNumbers.push(new PuzzelEntry(positions[14], index[14], 14));
+// puzzelEntryNumbers.push(new PuzzelEntry(positions[15], index[15],15));
 let harderGameCanvas = document.getElementById('harder-puzzel');
 canvasContext = harderGameCanvas.getContext('2d');
 canvasContext.clearRect(0, 0, harderGameCanvas.width, harderGameCanvas.height);
