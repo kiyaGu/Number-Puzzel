@@ -88,7 +88,7 @@ hr {
 }
 
 #buttons-container button:first-of-type {
-    margin-right: 2em;
+    /*margin-right: 2em;*/
     padding: .4em 3em;
 }
 
@@ -124,14 +124,13 @@ hr {
 
 #game-wrapper {
     align-self: center;
-    padding: 1em auto;
-    width: 450px;
+    padding: 1em;
+    text-align: center;
 }
 
 #puzzel-game-container {
     height: auto;
     width: auto;
-    margin: 10%;
 }
 
 .game-canvas {

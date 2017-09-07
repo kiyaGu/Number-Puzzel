@@ -7,7 +7,6 @@ let createThePositionObjects = function(x,y,index){
        ++counter;
     }
   }
-  console.log(positions.length)
   //make the position without numbers availabel for move
   positions.forEach((element) => {
       if (element.currentPlaceHolder == positions.length)
