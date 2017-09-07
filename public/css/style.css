@@ -220,13 +220,21 @@ hr {
 
 @media screen and (max-width:768px) {
 /* ========= more game =========== */
+#more-game{
+  padding-top: 10px;
+  width: auto;
+}
     #more-game-container {
-        padding: 0 1.5em;
+        padding: 0;
+        width: 95%;
+    }
+    #more-game-container hr:first-of-type{
+      padding-bottom: 0;
     }
     #game-wrapper {
-        margin-top: 1em;
+        margin-top: 0;
         align-self: center;
-        padding: auto;
+        padding: 1em;
         width: auto;
     }
     #puzzel-game-container {
@@ -260,7 +268,7 @@ hr {
     #game-timer {
         margin: 10px auto;
         right: 70px;
-        top: 10%;
+        top: 3%;
         font-size: .8em;
         color: cornsilk;
         background: linear-gradient(to bottom, rgba(0, 0, 0, .5), rgba(0, 0, 0, .9));
