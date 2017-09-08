@@ -5,13 +5,13 @@ let resetGame = function() {
   const harderPuzzel = require('./harderPuzzel');
   let switchGame = document.querySelector('#make-it-harder').innerHTML;
    if (switchGame.trim() == "Make It Harder") {
-     harderPuzzel();
-    } else {
       easierPuzzel();
+    } else {
+      harderPuzzel();
     }
     $('#game-timer').countdown('destroy');
     setTimeout(()=>{
-    document.querySelector('#game-timer span').innerHTML = "";
+    document.querySelector('#game-timer').innerHTML = "";
   },5000);
 }
 module.exports = resetGame;
