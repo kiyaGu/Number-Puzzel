@@ -38,16 +38,21 @@ hr {
 
 #more-game-container {
     margin: 2em 5%;
-    background-size: 100%;
     border-radius: 3px;
     min-height: 300px;
     overflow-y: auto;
+    padding: 3em 5% 3em 8%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
     display: flex;
     flex-direction: column;
+    align-content: center;
     position: relative;
-    padding: 3em 5% 3em 8%;
+    margin-top: .5em;
+    width: 100%;
 }
-
 .game-canvas {
     cursor: pointer;
     margin-bottom: 1em;
@@ -98,30 +103,16 @@ hr {
     text-transform: uppercase;
 }
 
-#result {
-    -vendor-animation-duration: 3s;
-    -vendor-animation-delay: 2s;
-    -vendor-animation-iteration-count: 10;
+#more-game #result {
+    -webkit-animation-duration: 3s;
+    -moz-animation-delay: 2s;
+    -ms-animation-iteration-count: 10;
 }
 
 #result span {
     font-size: 1.5em;
     color: #fec951;
 }
-
-#more-game-container {
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    position: relative;
-    margin-top: .5em;
-    width: 100%;
-}
-
 #game-wrapper {
     align-self: center;
     padding: 1em;
@@ -212,13 +203,13 @@ hr {
     padding-top: .7em;
     color: #CF4A39;
     text-align: center;
-}
-
-#game-timer span {
     text-transform: uppercase;
     font-weight: bold;
 }
-
+#game-timer p#expiry-text{
+  color: #CF4A39;
+  font-size: 1.2em;
+}
 @media screen and (max-width:768px) {
 /* ========= more game =========== */
 #more-game{
@@ -275,7 +266,7 @@ hr {
         color: cornsilk;
         background: linear-gradient(to bottom, rgba(0, 0, 0, .5), rgba(0, 0, 0, .9));
     }
-    #more-game #result span {
-        font-size: 1em;
+    #game-timer p#expiry-text{
+      font-size: .9em;
     }
 }

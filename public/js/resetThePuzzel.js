@@ -3,15 +3,17 @@
 let resetGame = function() {
   const easierPuzzel = require('./easierPuzzel');
   const harderPuzzel = require('./harderPuzzel');
-  let switchGame = document.querySelector('#make-it-harder').innerHTML;
-   if (switchGame.trim() == "Make It Harder") {
+   if (currentGame == "easierPuzzel") {
+     //recreate the game
       easierPuzzel();
     } else {
       harderPuzzel();
     }
+    //remove the timer
     $('#game-timer').countdown('destroy');
+    //remove the message for losing the game
     setTimeout(()=>{
-    document.querySelector('#game-timer').innerHTML = "";
-  },5000);
+    $('#game-timer').has('p').css('display','none');
+  },7000);
 }
 module.exports = resetGame;

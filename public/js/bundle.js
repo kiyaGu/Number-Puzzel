@@ -1,8 +1,10 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 let checkPosition = function(positions, i) {
+  //check if the position number and the current place holder hold the same value
     return (positions[i].positionNumber == i && positions[i].currentPlaceHolder == i + 1);
 }
 let checkGameResult = function(positions) {
+     //check the position number and the current placeholder value for each entry
     let test = positions.reduce((preTest, position) => {
         return preTest && checkPosition(positions, positions.indexOf(position))
     });
@@ -86,7 +88,7 @@ let easierPuzzel = function() {
   easyGameCanvas.addEventListener('click', (event) => {
       event.preventDefault();
       //set the time to 3min...3X60
-      gameTimer(180, resetGame);
+      gameTimer(10, resetGame);
       //get the coordinates/pixels of the mouse position when the player clicks on the canvas
       let position = getMousePos(easyGameCanvas, event);
 
@@ -187,15 +189,14 @@ let gameTimer = function(ceiling, callback) {
     //game timer
     shortly = new Date();
     shortly.setSeconds(shortly.getSeconds() + ceiling);
-    // $('#game-timer').countdown('option', { until: shortly });
     $('#game-timer').countdown({
         until: shortly,
-        expiryText: '<span>Oops, you LOST!!!</span>',
+        expiryText: '<p id="expiry-text" class="animated slideInRight">Oops, you LOST!!!</p>',
         onExpiry: callback,
         format: 'MS'//minute and seconds
     });
 }
-module.exports = gameTimer; 
+module.exports = gameTimer;
 
 },{}],6:[function(require,module,exports){
 let generateRandomNumber = function(upperBound) {
@@ -513,16 +514,18 @@ module.exports = PuzzelEntry;
 let resetGame = function() {
   const easierPuzzel = require('./easierPuzzel');
   const harderPuzzel = require('./harderPuzzel');
-  let switchGame = document.querySelector('#make-it-harder').innerHTML;
-   if (switchGame.trim() == "Make It Harder") {
+   if (currentGame == "easierPuzzel") {
+     //recreate the game
       easierPuzzel();
     } else {
       harderPuzzel();
     }
+    //remove the timer
     $('#game-timer').countdown('destroy');
+    //remove the message for losing the game
     setTimeout(()=>{
-    document.querySelector('#game-timer').innerHTML = "";
-  },5000);
+    $('#game-timer').has('p').css('display','none');
+  },7000);
 }
 module.exports = resetGame;
 

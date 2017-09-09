@@ -35,7 +35,7 @@ let easierPuzzel = function() {
   easyGameCanvas.addEventListener('click', (event) => {
       event.preventDefault();
       //set the time to 3min...3X60
-      gameTimer(180, resetGame);
+      gameTimer(10, resetGame);
       //get the coordinates/pixels of the mouse position when the player clicks on the canvas
       let position = getMousePos(easyGameCanvas, event);
 
