@@ -524,7 +524,7 @@ let resetGame = function() {
     $('#game-timer').countdown('destroy');
     //remove the message for losing the game
     setTimeout(()=>{
-    $('#game-timer').has('p').css('display','none');
+    $('#game-timer p').css('display','none');
   },7000);
 }
 module.exports = resetGame;
